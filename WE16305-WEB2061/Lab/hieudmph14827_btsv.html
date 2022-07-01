@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Mã sinh viên<input type="text" id="msv"><br>
+    Họ tên<input type="text" id="hoten"><br>
+    Điểm<input type="text" id="diem"><br>
+    Tìm kiếm<input type="text" id="timkiem"><br>
+    <button onclick="themsv()">Thêm</button>
+    <button onclick="timkiem()">Tìm Kiếm</button>
+    <table id="target" border="1"></table>
+    <script>
+        var mang = [];
+        function themsv() {
+            var msv = document.getElementById("msv");
+            var hoten = document.getElementById("hoten");
+            var diem = document.getElementById("diem");
+            var obj = {ma:msv.value,name:hoten.value,point:diem.value};
+            mang.push(obj);
+            show();
+        }
+        function timkiem() {
+            var target = document.getElementById("target");
+            var timkiem = document.getElementById("timkiem");
+            if (timkiem.value != "") {
+                var kq = mang.filter(function(value) {
+                    return value.name === timkiem.value
+                })
+                list_li = kq.map(function (value) {
+                return `<tbody>
+                            <tr>
+                                <td>` + value.ma +`</td>
+                                <td>` + value.name +`</td>
+                                <td>` + value.point +`</td>
+                            </tr>
+                        </tbody>`
+            })
+            target.innerHTML = `<tbody>
+                            <tr>
+                                <td>MSV</td>
+                                <td><button onclick="sapxep()">HỌ TÊN</button></td>
+                                <td>ĐIỂM</td>
+                            </tr>
+                        </tbody>` + list_li.join("");
+            }
+        }
+        function sapxep() {
+            mang.sort(function(a, b){
+                if(a.name < b.name) { return -1; }
+                if(a.name > b.name) { return 1; }
+                return 0;
+            })
+           show()
+        }
+        function show() {
+            var target = document.getElementById("target");
+            list_li = mang.map(function (value) {
+                return `<tbody>
+                            <tr>
+                                <td>` + value.ma +`</td>
+                                <td>` + value.name +`</td>
+                                <td>` + value.point +`</td>
+                            </tr>
+                        </tbody>`
+            })
+            target.innerHTML = `<tbody>
+                            <tr>
+                                <td>MSV</td>
+                                <td><button  onclick="sapxep()">HỌ TÊN</button></td>
+                                <td>ĐIỂM</td>
+                            </tr>
+                        </tbody>` + list_li.join("");
+        }
+    </script>
+</body>
+</html>

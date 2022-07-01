@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var chuoi_json = '{ "masv": "PH14827", "hoTen": "Đàm Minh Hiếu", "tuoi": 20}';
+        console.log(chuoi_json);
+        var obj_sv = JSON.parse(chuoi_json);
+        console.log(obj_sv.hoTen);
+        obj_sv.lop = "WE16305";
+        console.log(obj_sv);
+        //chuyen nguoa thanh chuoi
+        chuoi2 = JSON.stringify(obj_sv);
+        console.log(chuoi2);
+    </script>
+</body>
+
+</html>

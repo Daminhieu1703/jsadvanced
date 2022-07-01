@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .xanh {
+            color: green;
+        }
+
+        .do {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Kiểm tra form có hợp lệ không</h1>
+    <form action="" method="POST">
+        Username <input type="text" name="username"><span id="msg_username"></span> <br>
+        Password <input type="text" name="password"><span id="msg_passwd"></span> <br>
+        <button type="button">login</button>
+    </form>
+    <script>
+        btn = document.querySelector('button');
+        btn.onclick = function () {
+            //lấy giá trị username và pass
+            username = document.querySelector('input[name=username]').value;
+            passwd = document.querySelector('input[name=password]').value;
+            console.log(username + '/' + passwd);
+
+
+            //=============phần thử nghiệm với try catch===============================
+
+            try {
+                username.ABC();
+            } catch (ex) {
+                console.log(ex);
+            } finally {
+                console.log('có lỗi hay không thì dòng này vẫn chạy');
+            }
+
+            //===========================================================================
+
+            msg_username = document.querySelector('#msg_username');
+            msg_passwd = document.querySelector("#msg_passwd")
+
+
+            // viết biểu thức kiểm tra hợp lệ username
+            //chỉ bao gồm chữ cái, số, ít nhất là 5 kí tự
+
+            // bt_u = /[a-zA-Z0-9]/; //b1: liệt kê các kí tự hợp lệ
+            bt_u = /[a-zA-Z0-9]{5,30}/; //b2:giới hạn số lượng kí tự
+            bt_u = /[a-zA-Z0-9]{5,30}$/;
+
+
+            if (bt_u.test(username)) {
+                msg_username.innerHTML = 'OK';
+                msg_username.setAttribute('class', 'xanh');
+            } else {
+                msg_username.innerHTML = 'FAIL';
+                msg_username.setAttribute('class', 'do');
+            }
+
+
+            bt_pass = /^[a-zA-Z0-9@#$%]{5,30}$/;
+            if (bt_pass.test(passwd)) {
+                msg_passwd.innerHTML = 'OK';
+                msg_passwd.setAttribute('class', 'xanh');
+            } else {
+                msg_passwd.innerHTML = 'FAIL';
+                msg_passwd.setAttribute('class', 'do');
+            }
+
+        }
+
+
+    </script>
+</body>
+
+</html>

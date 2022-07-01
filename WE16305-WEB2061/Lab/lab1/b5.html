@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="moment.js"></script>
+</head>
+<body>
+    <div id="form">
+        <div>
+            <label for="">DATE</label>
+            <input type="number" id="date" value="" placeholder="Date">
+        </div>
+        <div>
+            <label for="">MONTH</label>
+            <input type="number" id="month" value="" placeholder="Month">
+        </div>
+        <div>
+            <label for="">YEAR</label>
+            <input type="number" id="year" value="" placeholder="Year">
+        </div>
+        <button type="submit" id="addAction" onclick="convert()">Convert</button>
+    </div>
+    <div id="target">
+        
+    </div>
+    <script>
+        function convert() {
+            var date = document.querySelector("#date").value;
+            var month = document.querySelector("#month").value;
+            var year = document.querySelector("#year").value;
+            var target = document.querySelector("#target");
+            if (date <= 30 && month <= 12 && year != "") {
+                var time1 = new Date(date + "-" + month + "-" + year);
+                var time2 = moment(time1).format('YYYY-MM-DD');
+                var time3 = moment(time1).format('L');
+                var time4 = moment(time1).format('DD.MM.YYYY');
+                var time5 = moment(time1).format('DD, MMM YYYY');
+                var time6 = moment(time1).format('DD, MMMM YYYY');
+                var arr = [time2, time3, time4, time5, time6];
+                list_h3 = arr.map(function(value) { 
+                    return '<h3>' + value + '</h3>';
+                });
+                return target.innerHTML = list_h3.join("");
+            } else {
+                return target.innerHTML = '<h3 style="color:red;">Ngày tháng năm bạn nhập không hợp lệ !</h3>';
+            }
+        }
+    </script>
+</body>
+</html>

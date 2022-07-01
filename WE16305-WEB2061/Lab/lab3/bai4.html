@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    1st Person Name<input type="text" id="name1"><br>
+    1st Person Age<input type="text" id="age1"><br>
+    1st Person Address<input type="text" id="address1"><br>
+    2st Person Name<input type="text" id="name2"><br>
+    2st Person Age<input type="text" id="age2"><br>
+    2st Person Address<input type="text" id="address2"><br>
+    <button type="button" onclick="showProfile()">Show Profile</button>
+    <table id="target" border="1"></table>
+    <h4 id="thongbao1"></h4>
+    <h4 id="thongbao2"></h4>
+    <script>
+        var kiemtra = 0;
+        var name1 = document.getElementById("name1");
+        var name2 = document.getElementById("name2");
+        var age1 = document.getElementById("age1");
+        var age2 = document.getElementById("age2");
+        var address1 = document.getElementById("address1");
+        var address2 = document.getElementById("address2");
+        var target = document.getElementById("target");
+        var thongbao1 = document.getElementById("thongbao1");
+        var thongbao2 = document.getElementById("thongbao2");
+        function showProfile() {
+            function profile(name,age,address) {
+                this.name = name;
+                this.age = age;
+                this.address = address;
+            }
+            if (name1.value == "" || age1.value == ""  || address1.value == "") {
+                thongbao1.style.color = "red";
+                thongbao1.innerText = "Bạn điền thiếu 1st";
+                kiemtra ++;
+            }else{
+                thongbao1.innerText = "";
+                var profile1 = new profile(name1.value,age1.value,address1.value);
+            }
+            if (name2.value == "" || age2.value == ""  || address2.value == "") {
+                thongbao2.style.color = "red";
+                thongbao2.innerText = "Bạn điền thiếu 2st";
+                kiemtra ++;
+            }else{
+                thongbao2.innerText = "";
+                var profile2 = new profile(name2.value,age2.value,address2.value);
+            }
+            var mang = [profile1, profile2];
+                    list_li = mang.map( function(value){
+                    if (value.gender == 1) {
+                        value.gender = "Nam"
+                    }else if(value.gender == 2){
+                        value.gender = "Nữ"
+                    } 
+                        return '<tbody><tr>' + '<td>'+value.name +'</td>' + '<td>'+value.age +'</td>' + '<td>'+value.address +'</td>' + '</tr></tbody>';
+                });
+                target.innerHTML =  `<thead>
+                                        <tr>
+                                            <td>NAME</td>
+                                            <td>AGE</td>
+                                            <td>ADDRESS</td>
+                                        </tr>
+                                    </thead>` + list_li.join("");
+            if (kiemtra == 0) {
+                return true
+            }else{
+                return false
+            }
+        }
+    </script>
+</body>
+</html>

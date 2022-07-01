@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>Event</h1>
+    <form action="">
+        Họ tên <input type="text" name="name"><br>
+        Email <input type="text" name="email"><br>
+        <button type="button">Reg</button>
+        <p id="msg"></p>
+    </form>
+    <script>
+        // $(document).ready(function() {})
+        //cú pháp rút gọn
+        //$(function() {})
+        $(function() {
+            //nhận focus thì đổi màu
+            $('input[name=name]').focus(function () {
+                $(this).css('background','yellow')
+                $(this).css('width','300px')
+            })
+            //sự kiện mất focus
+            $('input[name=name]').blur(function () {
+                $(this).css('background','none')
+                $(this).css('width','auto')
+            })
+            //sử dụng sự kiện onkeyup
+            $('input[name=name]').keyup(function () {
+                //lấy giá trị trong ô text
+                name = $(this).val();
+                $('#msg').html(name) //gán chuỗi giống innerHTML
+                $('#msg').text(name) // chỉ chấp nhận text
+            })
+        })
+    </script>
+</body>
+</html>

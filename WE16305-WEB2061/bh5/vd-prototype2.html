@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //  var sv1 = {msv:"ph14827", 
+        //             hoten:"Đàm Minh Hiếu",
+        //             inThongTin:function(){
+        //                 console.log(this.msv +"="+this.hoten);
+        //             }
+        //             // tinhHocLuc: function(){}
+        //         }
+        //         var sv2 = {msv:"ph14827", 
+        //             hoten:"Đàm Minh Hiếu",
+        //             inThongTin:function(){
+        //                 console.log(this.msv +"="+this.hoten);
+        //             }
+        //             // tinhHocLuc: function(){}
+        //         }
+        //         var sv3 = {msv:"ph14827", 
+        //             hoten:"Đàm Minh Hiếu",
+        //             inThongTin:function(){
+        //                 console.log(this.msv +"="+this.hoten);
+        //             }
+        //             // tinhHocLuc: function(){}
+        //         }
+                var sv4 = {msv:"ph14827", 
+                    hoten:"Đàm Minh Hiếu",
+                    inThongTin:function(){
+                        console.log(this.msv +"="+this.hoten);
+                    }
+                    // tinhHocLuc: function(){}
+                }
+                sv1 = {
+                    __proto__:sv4,
+                    msv :"PH15827",
+                    hoTen:"nva",
+                }
+                sv1.inThongTin();
+                console.log(sv1);
+    </script>
+</body>
+</html>

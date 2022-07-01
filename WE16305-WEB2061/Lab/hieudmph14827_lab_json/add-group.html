@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>add group</h1>
+    <input type="text" id="name">
+    <input type="button" value="Thêm" onclick="add_group()">
+    <script>
+        function add_group() {
+            var http = new XMLHttpRequest();
+            http.open('POST','http://localhost:3000/groups',true);
+            var name = document.getElementById("name");
+            var data = "name="+name.value
+            http.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            http.send(data);
+            alert("Thêm Group thành công !")
+        }
+    </script>
+</body>
+</html>

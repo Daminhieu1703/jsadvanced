@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Student(name, Age, phone, address, birthday) {
+            this.name = name;
+            this.Age = Age;
+            this.phone = phone;
+            this.address = address;
+            this.birthday = birthday;
+            this.Subjects = {Name: "Đặng Thái Sơn", Teacher: "Giáo Viên", Point: 10, Year:2022};
+        };
+        function StudentPoly(name_poly, age_poly, phone_poly, address_poly, birthday_poly,point) {
+            this.Point = point;
+            Student.call(this, name_poly, age_poly, phone_poly, address_poly, birthday_poly);
+            this.getAvgSore = function () {
+                return console.log("Điểm: hiện tại sinh viên poly: "+this.Point);
+            };
+            this.setAvgSore = function (setpoint) {
+                return this.Point = setpoint;
+            };
+            this.changeAddress = function (address) {
+                return this.address = address;
+            };
+        }
+        var sv = new Student('Đàm Minh Hiếu', 19, 0342770723, 'Hà Nội', '17-03-2002');
+        var svpoly = new StudentPoly("Triệu Việt Đức", 19, 0972003985, "Yên Bái", "18-03-2002",9);
+        console.log(sv);
+        console.log(svpoly);
+        svpoly.getAvgSore();
+        console.log("Điểm sửa của sinh viên poly: " + svpoly.setAvgSore(10));
+        console.log("Địa chỉ mới sinh viên poly: " + svpoly.changeAddress("Hà Nội"));
+    </script>
+</body>
+
+</html>

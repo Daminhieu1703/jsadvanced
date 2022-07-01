@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var email = "Ninhntv123456@fpt.edu.vn";
+        console.log(email.indexOf("#"));
+        console.log(email.substr(1,7));
+        chuoi = email.replace('@','--')
+        console.log(chuoi);
+        console.log(email.split("@"))
+        //kiểm tra có chữ @ trong chuỗi hay không
+        var bt = /n/gi;
+        console.log(bt.test(email));
+        //thay thế tất cả các chữ n thành dấu *
+        kq = email.replace(bt,'*');
+        console.log(kq);
+        //tách chuỗi thành mảng
+        kq2 = email.split(/\./);
+        console.log(kq2);
+        //ví dụ với match: lấy tất cả các số trong chuỗi
+        bt_match = /\d/g;
+        kq3 = email.match(bt_match);
+        console.log(kq3);
+        
+    </script>
+</body>
+</html>

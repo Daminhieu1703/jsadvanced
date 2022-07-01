@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1 class="p1">Sử dụng JQuery</h1>
+    <button>Đổi màu</button>
+    <p class="p1">Đoạn 1</p>
+    <p class="p2">Đoạn 2</p>
+    <p class="p3">Đoạn 3</p>
+    <script>
+        $(document).ready(function() {
+            $('button').click(function() {
+                $('h1').css('color','red')
+                $('h1').css('background','yellow')
+
+                //bộ trọn
+                $(this).css('background','cyan')
+                $(this).css('color','green')
+
+                //khi bấm nút thì đổi màu đoạn 2 và 3
+                $('.p2,.p3').css('color','red')
+                $('.p2,.p3').css('border','1px solid red')
+            })
+            $('h1').click(function() {
+                $('h1').css('color','black')
+            })
+        })
+    </script>
+</body>
+</html>

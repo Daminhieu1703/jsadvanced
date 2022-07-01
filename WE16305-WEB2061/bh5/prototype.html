@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         function SinhVien(hoTen, tuoi) {
+            this.hoTen = hoTen;
+            this.tuoi = tuoi;
+        }
+        //định nghĩ phương thức ngoài hàm dùng hàm prototype
+        SinhVien.prototype.inThongTin = function () {
+            console.log("Họ tên: " + this.hoTen + ", Tuổi: " + this.tuoi);
+        }
+        sv1 = new SinhVien("sv1","NVA");
+        console.log(sv1);
+        sv1.inThongTin();
+    </script>
+</body>
+</html>

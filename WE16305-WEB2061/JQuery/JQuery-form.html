@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>thực hành với form</h1>
+    <form action="">
+        chọn đáp án ?<br>
+        <input type="checkbox" name="chon" value="a">Đáp án A <br>
+        <input type="checkbox" name="chon" value="b">Đáp án B <br>
+        <input type="checkbox" name="chon" value="c">Đáp án C <br>
+        <button type="button">Bấm nút</button>
+    </form>
+    <script>
+        $(document).ready(function() {
+            $('button').click(function() {
+                //hiển thị tất cả các đáp án người dùng chọn
+               list_check = $(':checked');
+               console.log(list_check);
+               array_value = [];
+               for (iterator of list_check) {
+                   console.log(iterator.value);
+                   array_value.push(iterator.value)
+               }
+               console.log(array_value);
+            })
+        })
+    </script>
+</body>
+</html>

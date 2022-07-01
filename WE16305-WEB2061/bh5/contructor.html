@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function SinhVien(msv,hoTen) {
+            this.msv = msv;
+            this.hoTen = hoTen;
+            this.inThongTin=function(){
+                        console.log(this.msv +"="+this.hoTen)
+                    }
+        }
+        sv1 = new SinhVien("sv1","Đàm Minh Hiếu");
+        sv2 = new SinhVien("sv2","Minh Hiếu");
+        console.log(sv1);
+        console.log(sv2);
+    </script>
+</body>
+</html>

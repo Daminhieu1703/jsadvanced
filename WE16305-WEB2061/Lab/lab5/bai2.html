@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function move(lan_mot, lan_hai, time) {
+            return new Promise(function(resolve) {
+                if (time == 0) {
+                    console.log(lan_mot);
+                    console.log(lan_hai);
+                }else if(lan_hai == ""){
+                    setTimeout(function () {
+                        console.log(lan_mot);
+                        resolve();
+                    },time);
+                }else {
+                    setTimeout(function () {
+                        console.log(lan_mot);
+                        console.log(lan_hai);
+                        resolve();
+                    },time);
+                }
+            });
+        }
+        move('b1.Đã ngủ dậy !','b2.Đang đánh răng !')
+        .then(function () {
+            move('Đã đánh răng xong !','b3.Đang thay quần áo !',2000);
+        })
+        .then(function () {
+            move('Đã thay quần áo xong !','b4.Đang di chuyển !',3000);
+        })
+        .then(function () {
+            move('Đã đến trường !',"",4000);
+        })
+        .catch();
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style type="text/css" media="screen">
+    .user_item{
+        color: green;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <ul id="target">
+        
+    </ul>
+    <script>
+        var users = [
+            {id: 1, name:"James Smith", gender: 1},
+            {id: 2, name:"Isla Brown", gender: 2},
+            {id: 3, name:"Amelia Davies", gender: 2},
+            {id: 4, name:"Jacob Evans", gender: 4},
+        ];
+        var target = document.querySelector("#target");
+        list_li = users.map( function(value){
+            if(value.gender == 2){
+                value.gender="Nữ";
+            }else if(value.gender == 1){
+                value.gender="Nam";
+            }else{
+                value.gender="Phi giới tính";
+            }
+                    return '<li>' + value.id + '-' + value.name + '-' + value.gender + '</li>';
+        });
+        target.innerHTML = list_li.join("");
+    </script>
+</body>
+</html>

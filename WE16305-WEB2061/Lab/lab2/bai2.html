@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="string" placeholder="">
+    <input type="number" id="number" placeholder="">
+    <button id="check">Check</button>
+    <h3 id="result"></h3>
+    <script>
+        var number = document.getElementById("number");
+        var string = document.getElementById("string");
+        var check = document.getElementById("check");
+        var result = document.getElementById("result");
+        check.onclick = function () {
+            if (number.value != 0) {
+                var cut = string.value.substring(0,number.value);
+                return result.innerHTML = cut + "...";
+            } else {
+                return result.innerHTML = string.value + ".";
+            }
+        }
+    </script>
+</body>
+</html>

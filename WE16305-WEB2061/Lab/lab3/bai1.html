@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var Student = {id: 17, fullname: 'Đàm Minh Hiếu', email: 'hieudmph14827@fpt.edu.vn', avatar: 'avatar', address: 'Hà Nội', study_major: 'Công nghệ thông tin',AvgScore: 8.5,
+            go: function () {
+                console.log("Tên là: " + this.fullname + " - Email là: " + this.email + " - Địa chỉ: " + this.address + " - Chuyên ngành là: " + this.study_major);
+            },
+            getAvgScore: function () {
+                return this.AvgScore;
+            },
+            setAvgScore: function (point) {
+               return this.AvgScore = point;
+
+            },
+            changeAddress: function (address) {
+                return this.address = address;
+            }
+        }
+        Student.go();
+        console.log("Điểm hiện tại: " + Student.getAvgScore());
+        console.log("Điểm hiện sửa: "+ Student.setAvgScore(9));
+        console.log("Địa chỉ: "+ Student.changeAddress("HCM"));
+    </script>
+</body>
+
+</html>

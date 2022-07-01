@@ -1,0 +1,85 @@
+{
+  "groups": [
+    {
+      "id": 1,
+      "name": "group 1"
+    },
+    {
+      "name": "hehe",
+      "id": 2
+    },
+    {
+      "name": "quiz 2",
+      "id": 3
+    },
+    {
+      "name": "123",
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "name": "group 2",
+      "id": 6
+    },
+    {
+      "name": "111",
+      "id": 7
+    },
+    {
+      "name": "quiz 2",
+      "id": 8
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "groupId": 1,
+      "username": "Tuyền",
+      "password": "123",
+      "fullname": "Vũ Công Tuyền",
+      "email": "tuyenvc@gmail.com"
+    },
+    {
+      "username": "1",
+      "password": "1",
+      "fullname": "1",
+      "email": "1",
+      "groupId": "1",
+      "id": 2
+    },
+    {
+      "username": "undefined",
+      "password": "1",
+      "fullname": "1",
+      "email": "q1",
+      "groupId": "1",
+      "id": 3
+    },
+    {
+      "username": "2222",
+      "password": "2222",
+      "fullname": "2222",
+      "email": "222",
+      "groupId": "4",
+      "id": 4
+    },
+    {
+      "username": "hiếu",
+      "password": "hiếu",
+      "fullname": "hiếu",
+      "email": "hiếu",
+      "groupId": "1",
+      "id": 5
+    },
+    {
+      "username": "Daminhieu",
+      "password": "12",
+      "fullname": "12",
+      "email": "12",
+      "groupId": "1",
+      "id": 6
+    }
+  ]
+}

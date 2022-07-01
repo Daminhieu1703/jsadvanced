@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+    <div class="mb-3" style="width: 400px;text-align:center;margin: 50px 0 0 300px;">
+        <form action="" method="GET" onsubmit="return confirm()">
+            <h1>Đăng ký thành viên</h1>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Họ và tên*</span>
+                <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" id="ht">
+                <span style="color: red;" id="tb1"></span>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Tên tài khoản*</span>
+                <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" id="tk">
+                <span style="color: red;" id="tb2"></span>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Mật khẩu*</span>
+                <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" id="mk">
+                <span style="color: red;" id="tb3"></span>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Nhập lại mật khẩu</span>
+                <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" id="againmk">
+                <span style="color: red;" id="tb4"></span>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Email</span>
+                <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" id="email">
+                <span style="color: red;" id="tb5"></span>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">SĐT</span>
+                <input type="number" class="form-control" aria-label="Username" aria-describedby="basic-addon1" id="sdt">
+                <span style="color: red;" id="tb6"></span>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Địa chỉ</span>
+                <textarea class="form-control" aria-label="With textarea" id="dc"></textarea>
+            </div>
+              <button type="submit" class="btn btn-success">Đăng Ký</button>
+        </form>
+    </div>
+    <script>
+        function confirm() {
+            var kiemtra = 0;
+            var ht = document.getElementById("ht");
+            var tk = document.getElementById("tk");
+            var mk = document.getElementById("mk");
+            var againmk = document.getElementById("againmk");
+            var email = document.getElementById("email");
+            var sdt = document.getElementById("sdt");
+            var dc = document.getElementById("dc");
+            var bt = /^[a-z][a-z0-9_\.]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$/i;
+            var bt1 = /^[a-zA-Z0-9]/g;
+            var bt3 = /^[0-9]/g;
+            var bt2 = /[^a-z0-9][^à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ|ì|í|ị|ỉ|ĩ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ|ỳ|ý|ỵ|ỷ|ỹ|đ]/g;
+            if(ht.value == ""){
+                ht.style.border = "1px solid red";
+                document.getElementById("tb1").innerHTML = "Bạn chưa điền họ tên";
+                kiemtra ++;
+            }else if (bt1.test(ht.value) == false) {
+                ht.style.border = "1px solid red";
+                document.getElementById("tb1").innerHTML = "Họ tên không hợp lệ";
+                kiemtra ++;
+            } else{
+                ht.style.border = "1px solid green";
+                document.getElementById("tb1").innerHTML = "";
+            }
+            if (tk.value == "") {
+                tk.style.border = "1px solid red";
+                document.getElementById("tb2").innerHTML = "Bạn chưa điền tài khoản";
+                kiemtra ++;
+            }else if (bt2.test(tk.value)) {
+                tk.style.border = "1px solid red";
+                document.getElementById("tb2").innerHTML = "Tên tài khoản không hợp lệ";
+                kiemtra ++;
+            }else{
+                tk.style.border = "1px solid green";
+                document.getElementById("tb2").innerHTML = "";
+            }
+            if (mk.value == "") {
+                mk.style.border = "1px solid red";
+                document.getElementById("tb3").innerHTML = "Bạn chưa điền mật khẩu";
+                kiemtra ++;
+            }else{
+                mk.style.border = "1px solid green";
+                document.getElementById("tb3").innerHTML = "";
+            }
+            if (againmk.value !== mk.value) {
+                againmk.style.border = "1px solid red";
+                document.getElementById("tb4").innerHTML = "Mật khẩu nhập lại không đúng";
+                kiemtra ++;
+            }else if(againmk.value == ""){
+                againmk.style.border = "1px solid red";
+                document.getElementById("tb4").innerHTML = "Bạn chưa nhập lại mật khẩu";
+                kiemtra ++;
+            }else{
+                againmk.style.border = "1px solid green";
+                document.getElementById("tb4").innerHTML = "";
+            }
+            if (bt.test(email.value) == false) {
+                email.style.border = "1px solid red";
+                document.getElementById("tb5").innerHTML = "Email không đúng định dạng";
+                kiemtra ++;
+            }else{
+                email.style.border = "1px solid green";
+                document.getElementById("tb5").innerHTML = "";
+            }
+            if (sdt.value.length > 12 || sdt.value.length < 11 || bt3.test(sdt.value)) {
+                sdt.style.border = "1px solid red";
+                document.getElementById("tb6").innerHTML = "SĐT phải từ 11 đến 12 ký tự số";
+                kiemtra ++;
+            }else if (sdt.value.length < 1) {
+                sdt.style.border = "1px solid red";
+                document.getElementById("tb6").innerHTML = "Bạn chưa điền SĐT";
+                kiemtra ++;
+            }else{
+                sdt.style.border = "1px solid green";
+                document.getElementById("tb6").innerHTML = "";
+            }
+            if (kiemtra == 0) {
+                alert("Đăng Ký Thành Công")
+                return true
+            }else{
+                return false
+                
+            }
+        }
+    </script>
+</body>
+</html>

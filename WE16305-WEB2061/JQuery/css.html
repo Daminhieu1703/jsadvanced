@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <style>
+        .green{
+            background-color: cyan;
+            border:1px solid red;
+            color:blue;
+        }
+        .red{
+            background-color: red;
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="red">làm việc với css</h1>
+    <h2 class="green">khối 2</h2>
+    <h2>khối 3</h2>
+    <p>khối 2</p>
+    <button type="button">ẩn/hiện</button>
+    <script>
+        //kích chuột vào khối 2 thì đổi màu đỏ
+        //kích chuột lại vào lần nữa thì màu đỏ trả về mặc định
+        $(function (params) {
+            $('h2:first').click(function () {
+                // $(this).addClass('red');
+                //thêm class
+                $(this).toggleClass('red');
+                //xóa class
+                // $(this).removeClass('green');
+            })
+            $('button').click(function () {
+                $('h1').toggle(3000);
+            })
+        })
+    </script>
+</body>
+</html>

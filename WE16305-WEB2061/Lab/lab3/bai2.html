@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="name"><br>
+    <input type="text" id="point"><br>
+    <button type="button" id="new">Add</button>
+    <div id="target"></div>
+    <script>
+        var them = document.getElementById("new");
+        var ten = document.getElementById("name");
+        var diem = document.getElementById("point");
+        var hoTen = document.createElement("p");
+        var tuoi = document.createElement("p");
+        var diaChi = document.createElement("p");
+        var target = document.getElementById("target");
+        var sv = new Object();
+        sv.hoTen = "Đàm Minh Hiếu";
+        sv.tuoi = "19";
+        sv.diaChi = "Hà Nội";
+        sv.subjects = [];
+        hoTen.value = sv.hoTen;
+        tuoi.value = sv.tuoi;
+        diaChi.value = sv.diaChi;
+        them.onclick = function() {
+            var obj = {name:ten.value, point:diem.value};
+            sv.subjects.push(obj);
+            list_li = sv.subjects.map(function(value){
+                return "<li>"+ value.name + " - " + value.point +"</li>";
+            });
+            target.innerHTML = hoTen.value + "<br>" + tuoi.value + "<br>" + diaChi.value + "<br>" + list_li.join(" ");
+        }
+    </script>
+</body>
+</html>

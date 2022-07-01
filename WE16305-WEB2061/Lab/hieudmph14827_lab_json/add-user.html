@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>add user</h1>
+    <input type="text" id="username"><br>
+    <input type="password" id="password"><br>
+    <input type="text" id="fullname"><br>
+    <input type="email" id="email"><br>
+    <select name="" id="groupId"></select><br>
+    <input type="button" value="Thêm" onclick="add_user()">
+    <script>
+         var url = 'http://localhost:3000/groups';
+            fetch(url, {method: 'GET'})
+            .then(function(response) {return response.json()})
+            .then(function(data) {
+                content = ''
+                for (x of data) {
+                    content += `<option value="${x.id}">${x.name}</option>`
+                }
+                document.querySelector("#groupId").innerHTML = content
+            })
+        function add_user() {
+            var http = new XMLHttpRequest();
+            http.open('POST','http://localhost:3000/users',true);
+            var name = document.getElementById("username");
+            var password = document.getElementById("password");
+            var fullname = document.getElementById("fullname");
+            var email = document.getElementById("email");
+            var groupId = document.getElementById("groupId");
+            var data = "username="+name.value+"&password="+password.value+"&fullname="+fullname.value+"&email="+email.value+"&groupId="+groupId.value
+            http.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            http.send(data);    
+            alert("Thêm Group thành công !")
+        }
+    </script>
+</body>
+</html>

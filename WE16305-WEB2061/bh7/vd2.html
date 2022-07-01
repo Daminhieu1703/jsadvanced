@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function hamCallback(chuoi) {
+            console.log(chuoi);
+
+        }
+
+        function inThongTin(ten_ham_callback) {
+            document.write("<h1>Hàm callback </h1>");
+
+            if (ten_ham_callback)
+                ten_ham_callback();
+            document.write("<h1>Hết </h1>");
+
+
+        }
+
+        //gọi hàm và in thông tin ra
+        inThongTin(hamCallback('Nguyen van a'));
+        //sử dụng hàm lạc danh
+        inThongTin(function() {
+            console.log('viết lệnh xử lý nội dung hàm callback');
+            document.write("Nguyễn Văn A");
+        })
+    </script>
+
+
+
+
+</body>
+
+</html>

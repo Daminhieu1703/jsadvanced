@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input" placeholder="">
+    <button id="check">Check</button>
+    <br>
+    <h2>Chuỗi đảo ngược: <span id="output"></span></h2>
+    <h2>Kết quả chuỗi vừa nhập: <span id="result"></span></h2>
+    <script>
+        var input = document.getElementById("input");
+        var outputSpan = document.getElementById("output");
+        var resultSpan = document.getElementById("result");
+        var button = document.getElementById("check");
+        button.onclick = function() {
+            var inputValue = input.value;
+            if (inputValue !== "") {
+                var str2Arr = inputValue.split("");
+                var reverseArr = str2Arr.reverse();
+                var outputValue = reverseArr.join("");
+                outputSpan.innerText = outputValue;
+                if (outputValue === inputValue) {
+                    resultSpan.innerText = "Là chuỗi Palinedrome";
+                } else {
+                    resultSpan.innerText = "Không phải chuỗi Palinedrome";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
